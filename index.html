@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<!--
+  Rackspace HTML5 slide template,
+  based completely on the:
+
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Code Review Best Practices</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='./slides.js'></script>
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    
+    
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-rax'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+
+     <article class='biglogo'>
+     </article>
+
+
+      <article>
+        <h1>
+          Code Review Best Practices
+          <br>
+        </h1>
+        <p>
+          Paul Querna
+          <br>
+          May 4, 2012 
+        </p>
+      </article>
+      
+      <article>
+        <h3>
+          Why Code Reviews?
+        </h3>
+        <ul>
+          <li>Code Credit:
+            <br/>
+            <ul>
+              <li>Long term feature velocity</li>
+              <li>Higher quality design</li>
+              <li>Improved interfaces</li>
+              <li>Fix bugs before they impact environments</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Why Code Reviews?
+        </h3>
+        <ul>
+          <li>Operations and Dev:
+            <br/>
+            <ul>
+              <li>Remove SPOF: More people have seen the code when it breaks.  It will break.</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Why Code Reviews?
+        </h3>
+        <ul>
+          <li>Education:
+            <br/>
+            <ul>
+              <li>Exposure to new components</li>
+              <li>Easier to understand evolution of systems in small chunks</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Practices
+        </h3>
+        <ul>
+          <li>It is about the Code:
+            <br/>
+            <ul>
+              <li>Ask why is this code here, not why did <em>you</em> do this.</li>
+              <li>Give positive feedback on interesting code and ideas too.</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Practices: Code Submission
+        </h3>
+        <ul>
+          <li>Small Code reviews.</li>
+          <li>200-300 lines maximum.</li>
+          <li>Cherry-pick independent bug fixes to smaller pull requests</li>
+          <li>Avoid whitespace changes, they are distractions.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Practices: Code Submission
+        </h3>
+        <ul>
+          <li>Create Annotations about the code.</li>
+          <li>Pull request description provides context for reviewer</li>
+        </ul>
+        <img src="./img/pull-request-example.jpg">
+      </article>
+
+      <article>
+        <h3>
+          Practices: Code Review
+        </h3>
+        <ul>
+          <li>30 minute chunks of reviewing.</li>
+          <li>Make it a habit in your day.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Practices: Code Review
+        </h3>
+        <ul>
+          <li>Think about design.</li>
+          <li>What are your ideas based on the Story and Pull Request description.</li>
+          <li>Build up a personal checklist.</li>
+          <li>Ask questions.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Checklists
+        </h3>
+        <ul>
+          <li>Nothing is hard and fast.</li>
+          <li>Learn and share what you look for.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Checklist: HTTP
+        </h3>
+        <ul>
+          <li>Contract matches Docs</li>
+          <li>Methods: GETs are read only</li>
+          <li>URLs: Make sense, reasonable regex in path routing</li>
+          <li>POSTs: Partial Updates, invalid structure of JSON</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Checklist: Network Protocols
+        </h3>
+        <ul>
+          <li>Distributed systems have multiple versions online at once.</li>
+          <li>Thrift/RPC: Any changes!</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Checklist: Input/Output
+        </h3>
+        <ul>
+          <li>Whitelists, not blacklists.</li>
+          <li>Regular Expressions</li>
+        </ul>
+      </article>
+
+
+      <article>
+        <h3>
+          Checklist: Interfaces
+        </h3>
+        <ul>
+          <li>Tend to be set in limestone. (sand that over time turns to harder rock)</li>
+          <li>Changes impact on non-tested code.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Checklist: Functions and New Variables
+        </h3>
+        <ul>
+          <li>(C/C++) Cleanup of new Variables, struct members</li>
+          <li>Changes to entry and exit paths.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Checklist: Python
+        </h3>
+        <ul>
+          <li><code>{}</code> in kwargs vs <code>None</code></li>
+          <li>Code ran on module import.</li>
+          <li>Use Django built in methods.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Checklist: Style
+        </h3>
+        <ul>
+          <li>Who wrote this code? Can you tell?</li>
+          <li>Consistency means you read the code, not the style</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Checklist: Tests
+        </h3>
+        <ul>
+          <li>Positive, Negative.</li>
+          <li>Think about what is missing.</li>
+          <li>Think with malice.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Checklist: Concurrency
+        </h3>
+        <ul>
+          <li>It is extremely hard.
+            <br/>
+            <ul>
+              <li>Evented, Threaded, doesn't matter.</li>
+            </ul>
+          </li>
+          <li>Shared variables are only the beginning.</li>
+          <li>Read it again.</li>
+        </ul>
+      </article>
+
+
+      <article>
+        <h3>
+          Begin Commentary.
+        </h3>
+
+        <ul>
+          <li>
+            <a href='http://paul.querna.org/slides/'>paul.querna.org/slides</a>
+          </li>
+        </ul>
+      </article>
+
+      <article class='biglogo'>
+      </article>
+
+    </section>
+
+  </body>
+</html>
